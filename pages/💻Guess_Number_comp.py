@@ -20,7 +20,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 style='color: rgb(90, 5, 62)'>Number Guessing Game-Computer </h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: rgb(90, 5, 62)'>💻Number Guessing Game-Computer </h1>", unsafe_allow_html=True)
 
 x = 10 
 random_number = random.randint(1, x)
