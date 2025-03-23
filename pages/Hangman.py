@@ -6,16 +6,7 @@ from hangman_visual import lives_visual_dict
 # Custom Styling
 st.markdown("""
     <style>
-        .stApp {
-            background: linear-gradient(135deg, rgb(223, 129, 187), rgba(135, 206, 235, 1));
-            color: white;
-        }
-        .stTextInput>div>div>input {
-            border: 2px solid rgb(170, 49, 130);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
+        
         .stButton>button {
             background-color: rgb(90, 5, 62);
             color: white;
@@ -90,7 +81,7 @@ def reset_game():
 
 def main():
     initialization()
-    st.title(" 🔠Hangman Game") 
+    st.markdown("<h1 style='color: rgb(90, 5, 62)'>🔠 Hangman Game </h1>", unsafe_allow_html=True)
     display_game()
     user_guess = st.text_input("Guess a letter")
     col1,col2 = st.columns(2)

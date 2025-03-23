@@ -3,16 +3,7 @@ import streamlit as st
 # Custom Styling
 st.markdown("""
     <style>
-        .stApp {
-            background: linear-gradient(135deg, rgb(223, 129, 187), rgba(135, 206, 235, 1));
-            color: white;
-        }
-        .stTextInput>div>div>input {
-            border: 2px solid rgb(170, 49, 130);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
+       
         .stButton>button {
             background-color: rgb(90, 5, 62);
             color: white;
@@ -29,7 +20,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.title("🏋️:rainbow[BMI Calculator]")
+st.markdown("<h1 style='color: rgb(90, 5, 62)'>🏋️ BMI Calculator</h1>", unsafe_allow_html=True)
 
 user_weight = st.number_input("Enter your weight in kg:", min_value=1.0, format="%.2f")
 

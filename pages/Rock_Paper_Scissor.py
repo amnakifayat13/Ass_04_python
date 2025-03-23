@@ -4,16 +4,7 @@ import random
 # Custom Styling
 st.markdown("""
     <style>
-        .stApp {
-            background: linear-gradient(135deg, rgb(223, 129, 187), rgba(135, 206, 235, 1));
-            color: white;
-        }
-        .stTextInput>div>div>input {
-            border: 2px solid rgb(170, 49, 130);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
+        
         .stButton>button {
             background-color: rgb(90, 5, 62);
             color: white;
@@ -29,8 +20,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-st.title(":rainbow[📄Paper, ⛰️Rock & ✂️Scissor Game]")
+st.markdown("<h1 style='color: rgb(90, 5, 62);'>📄Paper, ⛰️Rock & ✂️Scissor Game</h1>", unsafe_allow_html=True)
 user_action = st.selectbox("Enter a choice:", ["Rock", "Paper", "Scissor"])
 possible_actions = ["Rock", "Paper", "Scissor"]
 computer_action = random.choice(possible_actions)

@@ -5,16 +5,7 @@ import time
 # Custom Styling
 st.markdown("""
     <style>
-        .stApp {
-            background: linear-gradient(135deg, rgb(223, 129, 187), rgba(135, 206, 235, 1));
-            color: white;
-        }
-        .stTextInput>div>div>input {
-            border: 2px solid rgb(170, 49, 130);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
+       
         .stButton>button {
             background-color: rgb(90, 5, 62);
             color: white;
@@ -30,7 +21,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 style='color: white;'>🎉 Birthday Countdown Timer 🎂</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: rgb(90, 5, 62);'>🎉 Birthday Countdown Timer 🎂</h1>", unsafe_allow_html=True)
 user_input = st.number_input("Enter the time in seconds:  " , min_value = 1 , step = 1)
 def countdown(t):
     timer = st.empty()

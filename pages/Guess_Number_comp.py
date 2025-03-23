@@ -4,16 +4,7 @@ import random
 # Custom Styling
 st.markdown("""
     <style>
-        .stApp {
-            background: linear-gradient(135deg, rgb(223, 129, 187), rgba(135, 206, 235, 1));
-            color: white;
-        }
-        .stTextInput>div>div>input {
-            border: 2px solid rgb(170, 49, 130);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
+        
         .stButton>button {
             background-color: rgb(90, 5, 62);
             color: white;
@@ -29,7 +20,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title(":blue[Number Guessing Game-Computer]")
+st.markdown("<h1 style='color: rgb(90, 5, 62)'>Number Guessing Game-Computer </h1>", unsafe_allow_html=True)
 
 x = 10 
 random_number = random.randint(1, x)

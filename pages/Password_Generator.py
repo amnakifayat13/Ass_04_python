@@ -57,16 +57,7 @@ def check_password_strength(password):
 # Custom Styling
 st.markdown("""
     <style>
-        .stApp {
-            background: linear-gradient(135deg, rgb(223, 129, 187), rgba(135, 206, 235, 1));
-            color: white;
-        }
-        .stTextInput>div>div>input {
-            border: 2px solid rgb(170, 49, 130);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
+        
         .stButton>button {
             background-color: rgb(90, 5, 62);
             color: white;
@@ -83,7 +74,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title & Input Field
-st.markdown("<h1 style='text-align: center; color:white;'>🔐 Password Strength Meter</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color:rgb(90, 5, 62);'>🔐 Password Strength Meter</h1>", unsafe_allow_html=True)
 password = st.text_input("Enter your password:", type="password")
 
 # Button to check password strength

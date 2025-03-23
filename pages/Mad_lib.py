@@ -4,16 +4,7 @@ from datetime import datetime
 # Custom Styling
 st.markdown("""
     <style>
-        .stApp {
-            background: linear-gradient(135deg, rgb(223, 129, 187), rgba(135, 206, 235, 1));
-            color: white;
-        }
-        .stTextInput>div>div>input {
-            border: 2px solid rgb(170, 49, 130);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
+        
         .stButton>button {
             background-color: rgb(90, 5, 62);
             color: white;
@@ -29,29 +20,34 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("👶➡️🧓:rainbow[Age Calculator]")
+import streamlit as st
 
-# Get user input
-dob = st.text_input("Enter your date of birth (DD-MM-YYYY): ")
+import streamlit as st
 
-def calculate_age(dob):
-    try:
-        birth_date = datetime.strptime(dob, "%d-%m-%Y") 
-        st.write(birth_date)
-        today = datetime.today()
-        st.write(today)
+def main():
+    st.markdown("<h1 style='color: rgb(90, 5, 62)'>✨ Mad Libs Adventure 🎭 </h1>", unsafe_allow_html=True)
+    st.subheader("Fill in the blanks by choosing words to create an exciting story! 📖")
+    
+    # User choices
+    noun = st.selectbox("🔤 Choose a noun:", ["dog 🐶", "robot 🤖", "pirate ☠️", "wizard 🧙"])
+    adjective = st.selectbox("🎨 Choose an adjective:", ["happy 😊", "furious 😡", "magical ✨", "brave 🦸"])
+    verb = st.selectbox("⚡ Choose a verb:", ["run 🏃", "dance 💃", "fly 🕊️", "explore 🔍"])
+    place = st.selectbox("🌍 Choose a place:", ["forest 🌳", "castle 🏰", "ocean 🌊", "space 🚀"])
+    
+    # Generate story when selections are made
+    if noun and adjective and verb and place:
+        story = (
+            f"📜 Once upon a time, in a faraway land, a {adjective} {noun} lived. "
+            f"One day, it decided to {verb} all the way to the {place}. 🌎\n\n"
+            f"Upon reaching the {place}, the {noun} discovered a hidden treasure chest 🎁. "
+            f"But suddenly, a giant appeared! 🏔️ The {adjective} {noun} had to think fast.\n\n"
+            f"Using its wits and courage, the {noun} found a secret passage and escaped. "
+            f"In the end, it learned that true adventure lies in the journey, not the destination. ✨"
+        )
+        
+        st.subheader("🎉 Your Mad Lib Adventure:")
+        st.write(story)
+    
+if __name__ == "__main__":
+    main()
 
-        age = today.year - birth_date.year
-        if (today.month, today.day) < (birth_date.month, birth_date.day):  
-            age -= 1
-
-        return age
-    except ValueError:
-        return None  
-# Display result
-if dob:
-    age = calculate_age(dob)
-    if age is not None:
-        st.write(f"Your age is: **{age}** years")
-    else:
-        st.error("Invalid date format. Please enter in DD-MM-YYYY format.")
