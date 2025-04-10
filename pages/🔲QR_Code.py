@@ -2,12 +2,12 @@ import streamlit as st
 import qrcode
 from PIL import Image
 from io import BytesIO
-from pyzbar.pyzbar import decode
+import cv2
+import numpy as np
 
 # Custom Styling
 st.markdown("""
     <style>
-        
         .stButton>button {
             background-color: rgb(90, 5, 62);
             color: white;
@@ -37,7 +37,6 @@ if st.button('Generate QR Code'):
         box_size=7,
         border=1
     )
-
     qr.add_data(st.session_state.data)
     qr.make(fit=True)
     img = qr.make_image(fill='black', back_color='white')
@@ -49,7 +48,7 @@ if st.button('Generate QR Code'):
 
     st.image(buffer, caption='QR Code', width=200)
 
-    #  download button
+    # Download button
     st.download_button(
         label="Download QR Code",
         data=buffer,
@@ -68,8 +67,15 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded QR Code', width=200)
     
-    decoded_data = decode(image)
+    # Convert the uploaded image to a format compatible with OpenCV
+    image_np = np.array(image.convert('RGB'))
+    gray_image = cv2.cvtColor(image_np, cv2.COLOR_RGB2GRAY)
+
+    # Decode the QR code using OpenCV
+    detector = cv2.QRCodeDetector()
+    decoded_data, points, _ = detector.detectAndDecode(gray_image)
+
     if decoded_data:
-        st.write("Decoded Data: ", decoded_data[0].data.decode('utf-8'))
+        st.write("Decoded Data: ", decoded_data)
     else:
         st.write("No QR code found in the image.")
